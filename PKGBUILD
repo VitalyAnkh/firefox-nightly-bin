@@ -11,7 +11,7 @@ _pkgname="${_name}-${_channel}"
 pkgname="${_pkgname}-bin"
 provides=('firefox-nightly')
 conflicts=('firefox-nightly')
-pkgdesc="Standalone Web Browser from Mozilla — Nightly build (${_lang})"
+pkgdesc="Fast, Private & Safe Web Browser from Mozilla — Nightly Build (${_lang})"
 url="https://www.mozilla.org/${_lang}/${_name}/${_channel}"
 
 # Apparently there is an alternate URL - https://archive.mozilla.org/pub/
@@ -34,7 +34,6 @@ _build_id_time=${_build_id[time]}
 
 pkgver=131.0a1.20240814.213714
 pkgver() {
-  declare -A _build_id
   printf "%s.%s.%s" ${_version} ${_build_id_date} ${_build_id_time}
 }
 pkgrel=1
