@@ -32,7 +32,7 @@ _build_id=(
 _build_id_date=${_build_id[date]}
 _build_id_time=${_build_id[time]}
 
-pkgver=131.0a1.20240814.213714
+pkgver=133.0a1.20241002.212724
 pkgver() {
   printf "%s.%s.%s" ${_version} ${_build_id_date} ${_build_id_time}
 }
@@ -65,17 +65,17 @@ source=('firefox-nightly.desktop'
   'policies.json'
   "${_filename}.tar.bz2::${_url}/${_src}.tar.bz2"
   "${_filename}.tar.bz2.asc::${_url}/${_src}.tar.bz2.asc")
-sha512sums=('87c181628c3be0762000ff3b5cb841ed2c2371937e4aab7f8f441c608dd08d349085036880c8e8aaed40d01fe258ea9be159741e9fad9f493c96fb9be4cc0de3'
-  '5ed67bde39175d4d10d50ba5b12063961e725e94948eadb354c0588b30d3f97d2178b66c1af466a6e7bd208ab694227a1391c4141f88d3da1a1178454eba5308'
-  'SKIP'
-  'SKIP')
+sha512sums=('320659477fc3319db4b73492aa6ce39c3a5dbc4ab8adc27440cb1e7ab69dad2cea83a57d7cd77eebfe833fb8a48c7e021bdca851f1be4840fae292afdba96664'
+            '5ed67bde39175d4d10d50ba5b12063961e725e94948eadb354c0588b30d3f97d2178b66c1af466a6e7bd208ab694227a1391c4141f88d3da1a1178454eba5308'
+            '3437ba68d39b8b0322fa3d9b5679679fcbf6e7faff050a6065c5ffa15410c5dc9d7df554fb2edf9f3109d25feb4f444010c0c896c79908fd60054c6c24dd7b1e'
+            'SKIP')
 validpgpkeys=('14F26682D0916CDD81E37B6D61B7B526D98F0353') # Mozilla’s GnuPG release key
 
 package() {
-  OPT_PATH="opt/${_pkgname}"
+  OPT_PATH="usr/lib/${_pkgname}"
 
   # Install the package files
-  install -d "${pkgdir}"/{usr/bin,opt}
+  install -d "${pkgdir}"/{usr/bin,usr/lib}
   cp -r ${_name} "${pkgdir}"/${OPT_PATH}
   ln -s "/${OPT_PATH}/${_name}" "${pkgdir}"/usr/bin/${_pkgname}
 
